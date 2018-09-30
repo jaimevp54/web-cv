@@ -7,24 +7,45 @@ html{
 }
 body{
   // use dimensions equivalent to a A4 page
-  width: 595pt; // 8.5 inches
-  height: 842pt; // 11 inches
+  width: $page-width; // 8.5 inches
+  height: $page-height; // 11 inches
   padding: 0;
   margin: 0;
+  display: flex;
+  flex-direction: column;
   -webkit-box-shadow: 10px 10px 51px 0px rgba(0, 0, 0, 0.57);
   -moz-box-shadow: 10px 10px 51px 0px rgba(0, 0, 0, 0.57);
   box-shadow: 10px 10px 51px 0px rgba(0, 0, 0, 0.57);
 
-  font-family: arial;
+  font-family: 'Asap', arial;
   h1{
     margin: 0;
+    font-size: 49pt;
+  }
+  h2{
+    font-size: 16pt;
+  }
+  h3{
+    font-size: 11pt;
+  }
+  ul{
+    padding: 0;
+    li{
+      display: block;
+      font-size: 8.5pt;
+      color: $light-gray;
+      margin-bottom: 10pt;
+      &:before{
+        content: '';
+      }
+    }
   }
 }
 
 
 #main-header{
   height: 200pt;
-  padding: 50pt 72pt;
+  padding: 40pt 72pt;
   background: white;
   display: grid;
   grid-template-areas:
@@ -37,12 +58,10 @@ body{
 
   #name{
     grid-area: name;
-    font-size: 49pt;
     font-weight: bold;
   }
   #title{
     grid-area: title;
-    font-size: 16pt;
     font-weight: bold;
   }
   #intro-phrase{
@@ -67,9 +86,91 @@ body{
 }
 
 #main-content{
-  height: 70%;
-  padding: 50pt 72pt;
+  flex-grow: 1;
+  padding: 40pt 72pt;
 
   background: $dark-gray;
   color: white;
+
+  display: grid;
+  grid-gap: 30pt;
+  grid-template-areas:
+  'tech jobs'
+  'educ lang'
+;
+  #technical-skills{
+    grid-area: tech;
+    .category{
+      h4{
+        color: white;
+        margin: 0 0 5pt 0;
+      }
+      ul{
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        max-height: 60pt;
+        li{
+          margin-bottom: 3pt;
+        }
+      }
+    }
+  }
+  #education{
+    grid-area: educ;
+    .institution{
+      display: grid;
+      grid-gap: 5pt;
+      grid-template-areas:
+        "degr time"
+        "name name"
+      ;
+
+      .degree{
+        grid-area: degr;
+        color: white;
+      }
+      .time-period{
+        grid-area: time;
+        color: white;
+        text-align: right;
+      }
+      .name{
+        grid-area: name;
+      }
+    }
+  }
+  #job-experience{
+    grid-area: jobs;
+    .job{
+      display: grid;
+      grid-gap: 5pt;
+      grid-template-areas:
+              "comp time"
+              "titl titl"
+              "desc desc"
+    ;
+
+      .company{
+        grid-area: comp;
+        color: white;
+      }
+      .time-period{
+        grid-area: time;
+        color: white;
+        text-align: right;
+      }
+      .title{
+        grid-area: titl;
+        color: $light-gray;
+      }
+      .description{
+        grid-area: desc;
+        color: $medium-gray;
+      }
+    }
+  }
+  #languages{
+    grid-area: lang;
+  }
 }
