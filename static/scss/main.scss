@@ -65,6 +65,7 @@ body{
     font-weight: bold;
   }
   #intro-phrase{
+    display: none;
     grid-area: phrase;
     font-size: 11pt;
   }
@@ -87,13 +88,13 @@ body{
 
 #main-content{
   flex-grow: 1;
-  padding: 40pt 72pt;
+  padding: 30pt 72pt;
 
   background: $dark-gray;
   color: white;
 
   display: grid;
-  grid-gap: 30pt;
+  grid-gap: 10pt 30pt;
   grid-template-areas:
   'tech jobs'
   'educ lang'
