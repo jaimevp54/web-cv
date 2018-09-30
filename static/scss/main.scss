@@ -1,4 +1,75 @@
+@import "variables";
+html{
+  display: flex;
+  justify-content: center;
+  background: white;
+  padding: 50pt;
+}
 body{
-  background: black;
+  // use dimensions equivalent to a A4 page
+  width: 595pt; // 8.5 inches
+  height: 842pt; // 11 inches
+  padding: 0;
+  margin: 0;
+  -webkit-box-shadow: 10px 10px 51px 0px rgba(0, 0, 0, 0.57);
+  -moz-box-shadow: 10px 10px 51px 0px rgba(0, 0, 0, 0.57);
+  box-shadow: 10px 10px 51px 0px rgba(0, 0, 0, 0.57);
+
+  font-family: arial;
+  h1{
+    margin: 0;
+  }
+}
+
+
+#main-header{
+  height: 200pt;
+  padding: 50pt 72pt;
+  background: white;
+  display: grid;
+  grid-template-areas:
+    'name'
+    'title'
+    'phrase'
+    'others'
+;
+  grid-template-rows: 1fr 1fr 2fr 1fr;
+
+  #name{
+    grid-area: name;
+    font-size: 49pt;
+    font-weight: bold;
+  }
+  #title{
+    grid-area: title;
+    font-size: 16pt;
+    font-weight: bold;
+  }
+  #intro-phrase{
+    grid-area: phrase;
+    font-size: 11pt;
+  }
+
+  #others{
+    grid-area: others;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    font-size: 10.1pt;
+    > *{
+      color: $medium-gray;
+      margin-right: 10pt;
+      span{
+        color: $dark-gray;
+        margin-right: 5pt;
+      }
+    }
+  }
+}
+
+#main-content{
+  height: 70%;
+  padding: 50pt 72pt;
+
+  background: $dark-gray;
   color: white;
 }
