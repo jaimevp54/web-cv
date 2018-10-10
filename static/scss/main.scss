@@ -1,11 +1,12 @@
 @import "variables";
-html{
+body{
   display: flex;
   justify-content: center;
   background: white;
   padding: 50pt;
+  overflow-x: hidden;
 }
-body{
+#resume{
   // use dimensions equivalent to a A4 page
   width: $page-width; // 8.5 inches
   height: $page-height; // 11 inches
@@ -13,6 +14,7 @@ body{
   margin: 0;
   display: flex;
   flex-direction: column;
+  z-index: 9999;
   -webkit-box-shadow: 10px 10px 51px 0px rgba(0, 0, 0, 0.57);
   -moz-box-shadow: 10px 10px 51px 0px rgba(0, 0, 0, 0.57);
   box-shadow: 10px 10px 51px 0px rgba(0, 0, 0, 0.57);
