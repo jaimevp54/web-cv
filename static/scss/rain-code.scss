@@ -1,3 +1,5 @@
+
+// TODO: fix error with quotes apearing on result files
 @import "variables";
 :root{
     --steps:2;
@@ -5,10 +7,10 @@
 #body-background{
   display:flex;
   min-width:2000px;
-  background:black;
+  background:white;
   position: fixed;
-  top: 0;
-  left: 0;
+  top: -15vh;
+  transform: rotateY(calc(1*var(--rotation)));
   .text{
     display: flex;
     justify-content: center;
@@ -31,7 +33,7 @@
       height: 10%;
       position: absolute;
       bottom: 0;
-      background:linear-gradient(transparent 5%, black);
+      background:linear-gradient(transparent 5%, white);
       z-index: 1010;
     }
     .veil{
@@ -40,26 +42,26 @@
       position:absolute;
       height:100%;
       width:100%;
-      mix-blend-mode:multiply;
-      background:black;
+      mix-blend-mode:lighten;
+      background:white;
       &.animate{
         &:before{
           content: "";
-          height:var(--veil-space);
-          background:linear-gradient(#888 20%, white);
+          height:calc(1*var(--veil-space));
+          background:linear-gradient(white 20%, #888);
           position:absolute;
           top:-400px;
           width:100%;
-          animation:move 8s 3s steps(var(--steps),end);
+          animation:move 8s 3s steps(calc(1*var(--steps)),end);
         }
         &:after{
           content: "";
-          height:var(--veil-space);
-          background:linear-gradient(#444 5%, white);
+          height:calc(1*var(--veil-space));
+          background:linear-gradient(white 5%, #444);
           position:absolute;
           top:-400px;
           width:100%;
-          animation:move 4s steps(var(--steps),end);
+          animation:move 4s steps(calc(1*var(--steps)),end);
         }
       }
     }
@@ -68,7 +70,7 @@
       font-size:20px;
       height:25px;
       text-align:center;
-      color:$light-gray;
+      color:darken($light-gray,40%);
     }
   }
 }
