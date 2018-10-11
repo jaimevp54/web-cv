@@ -21,7 +21,7 @@ body{
   -moz-box-shadow: 10px 10px 51px 0px rgba(0, 0, 0, 0.57);
   box-shadow: 10px 10px 51px 0px rgba(0, 0, 0, 0.57);
 
-  transform: rotateY(calc(0.5*var(--rotation)));
+  animation: changeViewAngleMain 10s infinite alternate ease-in-out;
   font-family: 'Asap', arial;
   h1{
     margin: 0;
@@ -180,3 +180,9 @@ body{
     grid-area: lang;
   }
 }
+@keyframes changeViewAngleMain{
+  from {transform: rotateY(-5deg) translateY(-2%)}
+  50% {transform: rotateY(-0deg) translateY(2%)}
+  to {transform: rotateY(5deg) translateY(-2%)}
+}
+
