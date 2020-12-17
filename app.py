@@ -23,6 +23,10 @@ assets.register('js_all', js)
 def index():
     return render_template('index.html')
 
+@app.route('/plain')
+def plain():
+    return render_template('plain.html')
+
 
 if __name__ == '__main__':
     env = environ.get("ENVIRONMENT", 'development')
